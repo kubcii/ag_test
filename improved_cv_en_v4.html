@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrej Gyure - Alpine Skiing Coach</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        .header h2 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1em;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px 20px;
+        }
+        .left-panel, .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .section {
+            margin-bottom: 0;
+        }
+        .section h3 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        .about-me {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        .about-me p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #555;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+        }
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-category li {
+            padding: 4px 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .skill-category li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .experience-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .experience-header h4 {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .year {
+            background: #3498db;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+        .experience-item p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+        }
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .achievement-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #e74c3c;
+        }
+        .achievement-item h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        .achievement-item p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .languages {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #27ae60;
+        }
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            font-size: 0.9em;
+        }
+        .language-level {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            body { padding: 5px; }
+            .header { padding: 20px 15px; }
+            .header h1 { font-size: 2em; }
+            .header h2 { font-size: 1.1em; }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            .contact-info p { font-size: 0.9em; }
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px 15px;
+            }
+            .section h3 { font-size: 1.3em; }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .achievements-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .experience-item { padding: 15px; }
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .about-me { padding: 15px; }
+            .skill-category { padding: 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.8em; }
+            .header h2 { font-size: 1em; }
+            .contact-info p { font-size: 0.8em; }
+            .section h3 { font-size: 1.2em; }
+            .experience-item { padding: 12px; }
+            .about-me { padding: 12px; }
+            .skill-category { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Andrej Gyure</h1>
+            <h2>Alpine Skiing Coach</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +421 948 255 601</p>
+                <p><i class="fas fa-map-marker-alt"></i> Banská Bystrica, Slovakia</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Panel - Skills & Expertise -->
+            <div class="left-panel">
+                <div class="section">
+                    <h3>About Me</h3>
+                    <div class="about-me">
+                        <p>
+                            I've spent over 30 years coaching alpine skiing at the highest levels of competition.
+                            My journey has taken me from Olympic Games to World Championships, working with athletes
+                            across different countries and cultures. I believe in developing not just great skiers,
+                            but well-rounded athletes who understand both the technical and mental aspects of the sport.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>What I Bring</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Coaching Experience</h4>
+                            <ul>
+                                <li>Olympic Games coaching (Sochi 2014)</li>
+                                <li>World Championships leadership</li>
+                                <li>World Cup and European Cup</li>
+                                <li>Junior team development</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Technical Skills</h4>
+                            <ul>
+                                <li>Performance analysis</li>
+                                <li>Equipment management</li>
+                                <li>Safety protocols</li>
+                                <li>Training program design</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Leadership</h4>
+                            <ul>
+                                <li>Team management</li>
+                                <li>Cross-cultural coaching</li>
+                                <li>Mentoring young coaches</li>
+                                <li>International collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div class="languages">
+                        <div class="language-item">
+                            <span>Slovak</span>
+                            <span class="language-level">Native</span>
+                        </div>
+                        <div class="language-item">
+                            <span>Spanish</span>
+                            <span class="language-level">Fluent</span>
+                        </div>
+                        <div class="language-item">
+                            <span>German</span>
+                            <span class="language-level">Basic</span>
+                        </div>
+                        <div class="language-item">
+                            <span>Italian</span>
+                            <span class="language-level">Basic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Experience & Achievements -->
+            <div class="right-panel">
+                <div class="section">
+                    <h3>Work Experience</h3>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Slovak National Team Coach</h4>
+                            <span class="year">2018-2023</span>
+                        </div>
+                        <p>Coached the national team in FIS races and European Cup competitions, focusing on developing young talent and maintaining high performance standards.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Québec Provincial Team Coach</h4>
+                            <span class="year">2014-2018</span>
+                        </div>
+                        <p>Worked in Canada's competitive skiing environment, adapting coaching methods to different cultural and sporting approaches.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Slovak Men's National Team</h4>
+                            <span class="year">2003-2014</span>
+                        </div>
+                        <p>Led the team through World Cup competitions, European Cup events, World Championships in Schladming, and the 2014 Winter Olympics in Sochi.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Junior National Team Coach</h4>
+                            <span class="year">1998-2003</span>
+                        </div>
+                        <p>Developed young athletes through FIS races and European Cup competitions, building the foundation for future elite competitors.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h4>Women's National Team Coach</h4>
+                            <span class="year">1994-1998</span>
+                        </div>
+                        <p>Coached the women's team in World Cup and European Cup competitions, managing both technical training and equipment.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Key Achievements</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <h4>Olympic Experience</h4>
+                            <p>Coached at the 2014 Winter Olympics in Sochi, representing Slovakia on the world's biggest stage.</p>
+                        </div>
+                        <div class="achievement-item">
+                            <h4>World Championships</h4>
+                            <p>Led the team at the 2013 World Championships in Schladming, Austria.</p>
+                        </div>
+                        <div class="achievement-item">
+                            <h4>International Experience</h4>
+                            <p>Successfully coached in multiple countries, adapting to different skiing cultures and training methods.</p>
+                        </div>
+                        <div class="achievement-item">
+                            <h4>Long-term Development</h4>
+                            <p>Built and maintained successful programs across different age groups and competition levels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
