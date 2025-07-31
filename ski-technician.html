@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrej Gyure - Ski Technician & Trainer Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        .header h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            font-size: 4em;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .service-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        .service-features li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .expertise-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .expertise-section h3 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2em;
+            text-align: center;
+        }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .expertise-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        .expertise-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .expertise-item p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .experience-highlights {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .experience-highlights h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .highlight-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .highlight-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .highlight-item p {
+            opacity: 0.9;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .cta-section h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .cta-button {
+            background: white;
+            color: #27ae60;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+        .portfolio-link {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .header { padding: 40px 20px; }
+            .header h1 { font-size: 2.5em; }
+            .header h2 { font-size: 1.3em; }
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .expertise-section { padding: 30px 20px; }
+            .experience-highlights { padding: 30px 20px; }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 2em; }
+            .header h2 { font-size: 1.1em; }
+            .contact-info p { font-size: 1em; }
+            .service-card { padding: 20px; }
+            .expertise-section { padding: 20px 15px; }
+            .experience-highlights { padding: 20px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Andrej Gyure</h1>
+            <h2>Ski Technician & Professional Trainer</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +421 948 255 601</p>
+                <p><i class="fas fa-map-marker-alt"></i> Banská Bystrica, Slovakia</p>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Ski Equipment Technician</h3>
+                <p>Professional ski equipment preparation, maintenance, and optimization for elite athletes and recreational skiers.</p>
+                <ul class="service-features">
+                    <li>Ski tuning and edge sharpening</li>
+                    <li>Wax application and temperature-specific preparation</li>
+                    <li>Equipment safety inspection and certification</li>
+                    <li>Custom ski setup and binding adjustment</li>
+                    <li>Performance optimization for competition</li>
+                    <li>Equipment maintenance and repair</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Alpine Skiing Instructor</h3>
+                <p>Comprehensive skiing instruction for all levels, from beginners to advanced competitors.</p>
+                <ul class="service-features">
+                    <li>Beginner to advanced skill development</li>
+                    <li>Technical skiing technique improvement</li>
+                    <li>Racing technique and strategy</li>
+                    <li>Safety training and mountain awareness</li>
+                    <li>Equipment selection and fitting guidance</li>
+                    <li>Performance analysis and feedback</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Elite Team Coach</h3>
+                <p>Professional coaching services for competitive teams and individual athletes at all levels.</p>
+                <ul class="service-features">
+                    <li>Team coaching and development</li>
+                    <li>Individual athlete mentoring</li>
+                    <li>Competition strategy and preparation</li>
+                    <li>Performance analysis and improvement</li>
+                    <li>Mental training and motivation</li>
+                    <li>International competition experience</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Expertise Section -->
+        <div class="expertise-section">
+            <h3><i class="fas fa-star"></i> Areas of Expertise</h3>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h4>🏅 Olympic Level Experience</h4>
+                    <p>Coached at the 2014 Winter Olympics in Sochi, providing elite-level equipment preparation and technical support.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>🌍 World Championships</h4>
+                    <p>Led equipment preparation and coaching at the 2013 World Championships in Schladming, Austria.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>🏆 World Cup Experience</h4>
+                    <p>Extensive experience in World Cup and European Cup competitions with top-level equipment management.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>🔧 Technical Expertise</h4>
+                    <p>30+ years of ski equipment preparation, maintenance, and optimization for competitive and recreational use.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>🌍 International Experience</h4>
+                    <p>Worked in multiple countries including Slovakia, Canada, Austria, and Russia with diverse skiing cultures.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>📚 Educational Background</h4>
+                    <p>Degree in Physical Education and Sports with specialization in Alpine Skiing from Comenius University.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Highlights -->
+        <div class="experience-highlights">
+            <h3><i class="fas fa-trophy"></i> Professional Highlights</h3>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <h4>30+ Years</h4>
+                    <p>Professional experience in alpine skiing coaching and equipment management</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>4 Countries</h4>
+                    <p>International experience across Slovakia, Canada, Austria, and Russia</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>Olympic Games</h4>
+                    <p>Coached and provided technical support at Sochi 2014 Winter Olympics</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>World Championships</h4>
+                    <p>Led team at 2013 World Championships in Schladming, Austria</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>Multiple Teams</h4>
+                    <p>Coached men's, women's, and junior national teams</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>Equipment Expert</h4>
+                    <p>Specialized in ski preparation, tuning, and safety protocols</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="cta-section">
+            <h3>Ready to Elevate Your Skiing Experience?</h3>
+            <p>Whether you need professional equipment preparation, expert instruction, or elite coaching, I'm here to help you achieve your skiing goals.</p>
+            <div class="cta-buttons">
+                <a href="index.html" class="cta-button portfolio-link">
+                    <i class="fas fa-file-alt"></i> View Full Portfolio
+                </a>
+                <a href="mailto:agtopsport@gmail.com" class="cta-button">
+                    <i class="fas fa-envelope"></i> Contact for Services
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
