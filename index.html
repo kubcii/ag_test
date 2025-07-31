@@ -140,6 +140,43 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .lang-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .lang-btn:hover {
+            background: #e9ecef;
+            color: #2c3e50;
+        }
+
+        .lang-btn.active:hover {
+            background: #2980b9;
+            color: white;
+        }
+
         /* Skiing-themed decorative elements */
         .ski-decoration {
             position: fixed;
@@ -227,10 +264,37 @@
             .ski-decoration {
                 display: none;
             }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        function changeLanguage(lang) {
+            // Update language buttons
+            const langBtns = document.querySelectorAll('.lang-btn');
+            langBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update all translatable elements
+            const elements = document.querySelectorAll('[data-en][data-cz]');
+            elements.forEach(element => {
+                if (lang === 'cz') {
+                    element.textContent = element.getAttribute('data-cz');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
         }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="changeLanguage('cz')">CZ</button>
+    </div>
+
     <!-- Skiing-themed decorative elements -->
     <div class="ski-decoration">🎿</div>
     <div class="ski-decoration">🏔️</div>
@@ -238,8 +302,8 @@
 
     <div class="container">
         <div class="header">
-            <h1>Andrej Gyure</h1>
-            <h2>Alpine Skiing Coach</h2>
+            <h1 data-en="Andrej Gyure" data-cz="Andrej Gyure">Andrej Gyure</h1>
+            <h2 data-en="Alpine Skiing Coach" data-cz="Alpský Lyžařský Trenér">Alpine Skiing Coach</h2>
             <div class="contact-info">
                 <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
                 <p><i class="fas fa-phone"></i> +421 948 255 601</p>
@@ -249,22 +313,22 @@
 
         <div class="content">
             <div class="intro">
-                <p>
+                <p data-en="Welcome to my CV portfolio! I've created versions in multiple languages with a modern, mobile-responsive design. Each version features natural, human-sounding language and a two-panel layout optimized for all devices." data-cz="Vítejte v mém CV portfoliu! Vytvořil jsem verze v několika jazycích s moderním, mobilně responzivním designem. Každá verze obsahuje přirozený, lidsky znějící jazyk a dvoupanelové rozložení optimalizované pro všechna zařízení.">
                     Welcome to my CV portfolio! I've created versions in multiple languages
                     with a modern, mobile-responsive design. Each version features natural,
                     human-sounding language and a two-panel layout optimized for all devices.
                 </p>
                 <div style="text-align: center; margin: 20px 0;">
                     <a href="portfolio.html" style="background: #27ae60; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; margin: 10px;">
-                        <i class="fas fa-star"></i> View Full Portfolio
+                        <i class="fas fa-star"></i> <span data-en="View Full Portfolio" data-cz="Zobrazit Plné Portfolio">View Full Portfolio</span>
                     </a>
                 </div>
             </div>
 
             <div class="cv-grid">
                 <a href="improved_cv_en_v4.html" class="cv-card">
-                    <h3>🇺🇸 English Version</h3>
-                    <p>Professional CV with natural language and modern design</p>
+                    <h3>🇺🇸 <span data-en="English Version" data-cz="Anglická Verze">English Version</span></h3>
+                    <p data-en="Professional CV with natural language and modern design" data-cz="Profesionální CV s přirozeným jazykem a moderním designem">Professional CV with natural language and modern design</p>
                     <div class="features">
                         <span class="feature-badge">Two-Panel Layout</span>
                         <span class="feature-badge">Mobile Responsive</span>
@@ -273,8 +337,8 @@
                 </a>
 
                 <a href="improved_cv_sk_v4.html" class="cv-card">
-                    <h3>🇸🇰 Slovak Version</h3>
-                    <p>Profesionálne CV s prirodzeným jazykom a moderným dizajnom</p>
+                    <h3>🇸🇰 <span data-en="Slovak Version" data-cz="Slovenská Verze">Slovak Version</span></h3>
+                    <p data-en="Professional CV with natural language and modern design" data-cz="Profesionální CV s přirozeným jazykem a moderním designem">Profesionálne CV s prirodzeným jazykom a moderným dizajnom</p>
                     <div class="features">
                         <span class="feature-badge">Dvojpanelový Layout</span>
                         <span class="feature-badge">Mobilne Responzívne</span>
@@ -283,8 +347,8 @@
                 </a>
 
                 <a href="improved_cv_de_v4.html" class="cv-card">
-                    <h3>🇩🇪 German Version</h3>
-                    <p>Professioneller Lebenslauf mit natürlicher Sprache und modernem Design</p>
+                    <h3>🇩🇪 <span data-en="German Version" data-cz="Německá Verze">German Version</span></h3>
+                    <p data-en="Professional CV with natural language and modern design" data-cz="Profesionální CV s přirozeným jazykem a moderním designem">Professioneller Lebenslauf mit natürlicher Sprache und modernem Design</p>
                     <div class="features">
                         <span class="feature-badge">Zweipaneliges Layout</span>
                         <span class="feature-badge">Mobil Optimiert</span>
@@ -293,8 +357,8 @@
                 </a>
 
                 <a href="improved_cv_es_v4.html" class="cv-card">
-                    <h3>🇪🇸 Spanish Version</h3>
-                    <p>CV profesional con lenguaje natural y diseño moderno</p>
+                    <h3>🇪🇸 <span data-en="Spanish Version" data-cz="Španělská Verze">Spanish Version</span></h3>
+                    <p data-en="Professional CV with natural language and modern design" data-cz="Profesionální CV s přirozeným jazykem a moderním designem">CV profesional con lenguaje natural y diseño moderno</p>
                     <div class="features">
                         <span class="feature-badge">Diseño de Dos Paneles</span>
                         <span class="feature-badge">Responsivo Móvil</span>

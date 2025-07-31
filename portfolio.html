@@ -38,6 +38,43 @@
             padding: 20px;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .lang-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .lang-btn:hover {
+            background: #e9ecef;
+            color: #2c3e50;
+        }
+
+        .lang-btn.active:hover {
+            background: #2980b9;
+            color: white;
+        }
+
         /* Enhanced Header with Skiing Theme */
         .header {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -552,6 +589,63 @@
             z-index: -1;
         }
 
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
         .ski-decoration:nth-child(2) {
             top: 150px;
             right: 100px;
@@ -603,6 +697,10 @@
             .ski-decoration {
                 display: none;
             }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -616,6 +714,12 @@
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="changeLanguage('cz')">CZ</button>
+    </div>
+
     <!-- Skiing-themed decorative elements -->
     <div class="ski-decoration">🎿</div>
     <div class="ski-decoration">🏔️</div>
@@ -624,8 +728,8 @@
     <div class="container">
         <!-- Header Section -->
         <div class="header">
-            <h1>Andrej Gyure</h1>
-            <h2>Professional Alpine Skiing Coach & Technician</h2>
+            <h1 data-en="Andrej Gyure" data-cz="Andrej Gyure">Andrej Gyure</h1>
+            <h2 data-en="Professional Alpine Skiing Coach & Technician" data-cz="Profesionální Alpský Lyžařský Trenér a Technik">Professional Alpine Skiing Coach & Technician</h2>
             <div class="contact-info">
                 <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
                 <p><i class="fas fa-phone"></i> +421 948 255 601</p>
@@ -636,13 +740,13 @@
         <!-- Navigation Tabs -->
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="showTab('overview')">
-                <i class="fas fa-user"></i> Overview
+                <i class="fas fa-user"></i> <span data-en="Overview" data-cz="Přehled">Overview</span>
             </button>
             <button class="nav-tab" onclick="showTab('services')">
-                <i class="fas fa-tools"></i> Services
+                <i class="fas fa-tools"></i> <span data-en="Services" data-cz="Služby">Services</span>
             </button>
             <button class="nav-tab" onclick="showTab('expertise')">
-                <i class="fas fa-star"></i> Expertise
+                <i class="fas fa-star"></i> <span data-en="Expertise" data-cz="Odbornost">Expertise</span>
             </button>
         </div>
 
@@ -651,7 +755,7 @@
             <div class="content-section">
                 <div class="section">
                     <div class="about-me">
-                        <p>
+                        <p data-en="I've spent over 30 years in the world of alpine skiing, working with athletes at every level from beginners to Olympic competitors. My journey has taken me across four countries, working with national teams and providing technical support at the highest levels of competition." data-cz="Strávil jsem více než 30 let ve světě alpského lyžování, pracoval jsem s atlety všech úrovní od začátečníků po olympijské účastníky. Moje cesta mě zavedla do čtyř zemí, kde jsem pracoval s národními týmy a poskytoval technickou podporu na nejvyšších úrovních soutěží.">
                             I've spent over 30 years in the world of alpine skiing, working with athletes at every level
                             from beginners to Olympic competitors. My journey has taken me across four countries, working
                             with national teams and providing technical support at the highest levels of competition.
@@ -661,63 +765,91 @@
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-number">30+</div>
-                            <div class="stat-label">Years Experience</div>
+                            <div class="stat-label" data-en="Years Experience" data-cz="Let Zkušeností">Years Experience</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-number">4</div>
-                            <div class="stat-label">Countries</div>
+                            <div class="stat-label" data-en="Countries" data-cz="Země">Countries</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">Olympic</div>
-                            <div class="stat-label">Games 2014</div>
+                            <div class="stat-number" data-en="Olympic" data-cz="Olympijské">Olympic</div>
+                            <div class="stat-label" data-en="Games 2014" data-cz="Hry 2014">Games 2014</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">World</div>
-                            <div class="stat-label">Championships</div>
+                            <div class="stat-number" data-en="World" data-cz="Světové">World</div>
+                            <div class="stat-label" data-en="Championships" data-cz="Mistrovství">Championships</div>
                         </div>
                     </div>
 
                     <div class="main-content">
                         <div class="section">
-                            <h3><i class="fas fa-graduation-cap"></i> Education & Background</h3>
+                            <h3><i class="fas fa-graduation-cap"></i> <span data-en="Education & Background" data-cz="Vzdělání a Pozadí">Education & Background</span></h3>
                             <ul style="list-style: none; padding: 0;">
                                 <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                                    <strong>Physical Education and Sports</strong><br>
+                                    <strong data-en="Physical Education and Sports" data-cz="Tělesná Výchova a Sport">Physical Education and Sports</strong><br>
                                     Comenius University, Bratislava<br>
-                                    <em>Specialization in Alpine Skiing</em>
+                                    <em data-en="Specialization in Alpine Skiing" data-cz="Specializace na Alpské Lyžování">Specialization in Alpine Skiing</em>
                                 </li>
                                 <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                                    <strong>Professional Certifications</strong><br>
-                                    Ski Instructor, Equipment Technician<br>
-                                    <em>Multiple international certifications</em>
+                                    <strong data-en="Professional Certifications" data-cz="Profesionální Certifikace">Professional Certifications</strong><br>
+                                    <span data-en="Ski Instructor, Equipment Technician" data-cz="Lyžařský Instruktor, Technik Vybavení">Ski Instructor, Equipment Technician</span><br>
+                                    <em data-en="Multiple international certifications" data-cz="Více mezinárodních certifikací">Multiple international certifications</em>
                                 </li>
                                 <li style="padding: 10px 0;">
-                                    <strong>Continuous Education</strong><br>
-                                    Latest techniques and equipment<br>
-                                    <em>Ongoing professional development</em>
+                                    <strong data-en="Continuous Education" data-cz="Průběžné Vzdělávání">Continuous Education</strong><br>
+                                    <span data-en="Latest techniques and equipment" data-cz="Nejnovější techniky a vybavení">Latest techniques and equipment</span><br>
+                                    <em data-en="Ongoing professional development" data-cz="Průběžný profesní rozvoj">Ongoing professional development</em>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="section">
-                            <h3><i class="fas fa-trophy"></i> Key Achievements</h3>
+                            <h3><i class="fas fa-trophy"></i> <span data-en="Key Achievements" data-cz="Klíčové Úspěchy">Key Achievements</span></h3>
                             <ul style="list-style: none; padding: 0;">
                                 <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
                                     <strong>2014 Winter Olympics</strong><br>
-                                    Equipment preparation and technical support<br>
+                                    <span data-en="Equipment preparation and technical support" data-cz="Příprava vybavení a technická podpora">Equipment preparation and technical support</span><br>
                                     <em>Sochi, Russia</em>
                                 </li>
                                 <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
                                     <strong>2013 World Championships</strong><br>
-                                    Team leadership and equipment management<br>
+                                    <span data-en="Team leadership and equipment management" data-cz="Vedení týmu a správa vybavení">Team leadership and equipment management</span><br>
                                     <em>Schladming, Austria</em>
                                 </li>
                                 <li style="padding: 10px 0;">
-                                    <strong>International Experience</strong><br>
-                                    Slovakia, Canada, Austria, Russia<br>
-                                    <em>Multiple national teams</em>
+                                    <strong data-en="International Experience" data-cz="Mezinárodní Zkušenosti">International Experience</strong><br>
+                                    <span data-en="Slovakia, Canada, Austria, Russia" data-cz="Slovensko, Kanada, Rakousko, Rusko">Slovakia, Canada, Austria, Russia</span><br>
+                                    <em data-en="Multiple national teams" data-cz="Více národních týmů">Multiple national teams</em>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+
+                    <!-- Image Gallery Section -->
+                    <div class="section">
+                        <h3><i class="fas fa-images"></i> <span data-en="Professional Experience" data-cz="Profesionální Zkušenosti">Professional Experience</span></h3>
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Alpine Skiing Competition">
+                                <div class="gallery-overlay">
+                                    <h4 data-en="Competition Level" data-cz="Závodní Úroveň">Competition Level</h4>
+                                    <p data-en="World Cup and Olympic experience" data-cz="Zkušenosti ze Světového poháru a olympiády">World Cup and Olympic experience</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ski Equipment Technician">
+                                <div class="gallery-overlay">
+                                    <h4 data-en="Equipment Expertise" data-cz="Odbornost na Vybavení">Equipment Expertise</h4>
+                                    <p data-en="Professional ski tuning and maintenance" data-cz="Profesionální broušení a údržba lyží">Professional ski tuning and maintenance</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Mountain Training">
+                                <div class="gallery-overlay">
+                                    <h4 data-en="Mountain Training" data-cz="Horský Trénink">Mountain Training</h4>
+                                    <p data-en="High-altitude and technical training" data-cz="Vysokohorský a technický trénink">High-altitude and technical training</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -728,22 +860,22 @@
         <div id="services" class="tab-content">
             <div class="content-section">
                 <div class="section">
-                    <h3><i class="fas fa-tools"></i> Professional Services</h3>
+                    <h3><i class="fas fa-tools"></i> <span data-en="Professional Services" data-cz="Profesionální Služby">Professional Services</span></h3>
 
                     <div class="services-grid">
                         <div class="service-card">
                             <div class="service-icon">
                                 <i class="fas fa-tools"></i>
                             </div>
-                            <h3>Ski Equipment Technician</h3>
-                            <p>Professional ski equipment preparation, maintenance, and optimization for elite athletes and recreational skiers.</p>
+                            <h3 data-en="Ski Equipment Technician" data-cz="Technik Lyžařského Vybavení">Ski Equipment Technician</h3>
+                            <p data-en="Professional ski equipment preparation, maintenance, and optimization for elite athletes and recreational skiers." data-cz="Profesionální příprava, údržba a optimalizace lyžařského vybavení pro elitní atlety a rekreační lyžaře.">Professional ski equipment preparation, maintenance, and optimization for elite athletes and recreational skiers.</p>
                             <ul class="service-features">
-                                <li>Ski tuning and edge sharpening</li>
-                                <li>Wax application and temperature-specific preparation</li>
-                                <li>Equipment safety inspection and certification</li>
-                                <li>Custom ski setup and binding adjustment</li>
-                                <li>Performance optimization for competition</li>
-                                <li>Equipment maintenance and repair</li>
+                                <li data-en="Ski tuning and edge sharpening" data-cz="Broušení lyží a ostření hran">Ski tuning and edge sharpening</li>
+                                <li data-en="Wax application and temperature-specific preparation" data-cz="Aplikace vosku a teplotně specifická příprava">Wax application and temperature-specific preparation</li>
+                                <li data-en="Equipment safety inspection and certification" data-cz="Bezpečnostní kontrola a certifikace vybavení">Equipment safety inspection and certification</li>
+                                <li data-en="Custom ski setup and binding adjustment" data-cz="Vlastní nastavení lyží a úprava vázání">Custom ski setup and binding adjustment</li>
+                                <li data-en="Performance optimization for competition" data-cz="Optimalizace výkonu pro soutěže">Performance optimization for competition</li>
+                                <li data-en="Equipment maintenance and repair" data-cz="Údržba a opravy vybavení">Equipment maintenance and repair</li>
                             </ul>
                         </div>
 
@@ -751,15 +883,15 @@
                             <div class="service-icon">
                                 <i class="fas fa-chalkboard-teacher"></i>
                             </div>
-                            <h3>Alpine Skiing Instructor</h3>
-                            <p>Comprehensive skiing instruction for all levels, from beginners to advanced competitors.</p>
+                            <h3 data-en="Alpine Skiing Instructor" data-cz="Instruktor Alpského Lyžování">Alpine Skiing Instructor</h3>
+                            <p data-en="Comprehensive skiing instruction for all levels, from beginners to advanced competitors." data-cz="Komplexní lyžařská výuka pro všechny úrovně, od začátečníků po pokročilé soutěžící.">Comprehensive skiing instruction for all levels, from beginners to advanced competitors.</p>
                             <ul class="service-features">
-                                <li>Beginner to advanced skill development</li>
-                                <li>Technical skiing technique improvement</li>
-                                <li>Racing technique and strategy</li>
-                                <li>Safety training and mountain awareness</li>
-                                <li>Equipment selection and fitting guidance</li>
-                                <li>Performance analysis and feedback</li>
+                                <li data-en="Beginner to advanced skill development" data-cz="Rozvoj dovedností od začátečníků po pokročilé">Beginner to advanced skill development</li>
+                                <li data-en="Technical skiing technique improvement" data-cz="Zlepšení techniky lyžování">Technical skiing technique improvement</li>
+                                <li data-en="Racing technique and strategy" data-cz="Závodní technika a strategie">Racing technique and strategy</li>
+                                <li data-en="Safety training and mountain awareness" data-cz="Bezpečnostní výcvik a povědomí o horách">Safety training and mountain awareness</li>
+                                <li data-en="Equipment selection and fitting guidance" data-cz="Výběr a správné nasazení vybavení">Equipment selection and fitting guidance</li>
+                                <li data-en="Performance analysis and feedback" data-cz="Analýza výkonu a zpětná vazba">Performance analysis and feedback</li>
                             </ul>
                         </div>
 
@@ -767,15 +899,15 @@
                             <div class="service-icon">
                                 <i class="fas fa-users"></i>
                             </div>
-                            <h3>Elite Team Coach</h3>
-                            <p>Professional coaching services for competitive teams and individual athletes at all levels.</p>
+                            <h3 data-en="Elite Team Coach" data-cz="Trenér Elitního Týmu">Elite Team Coach</h3>
+                            <p data-en="Professional coaching services for competitive teams and individual athletes at all levels." data-cz="Profesionální trenérské služby pro soutěžní týmy a individuální atlety všech úrovní.">Professional coaching services for competitive teams and individual athletes at all levels.</p>
                             <ul class="service-features">
-                                <li>Team coaching and development</li>
-                                <li>Individual athlete mentoring</li>
-                                <li>Competition strategy and preparation</li>
-                                <li>Performance analysis and improvement</li>
-                                <li>Mental training and motivation</li>
-                                <li>International competition experience</li>
+                                <li data-en="Team coaching and development" data-cz="Týmový trénink a rozvoj">Team coaching and development</li>
+                                <li data-en="Individual athlete mentoring" data-cz="Mentoring individuálních atletů">Individual athlete mentoring</li>
+                                <li data-en="Competition strategy and preparation" data-cz="Závodní strategie a příprava">Competition strategy and preparation</li>
+                                <li data-en="Performance analysis and improvement" data-cz="Analýza a zlepšení výkonu">Performance analysis and improvement</li>
+                                <li data-en="Mental training and motivation" data-cz="Mentální trénink a motivace">Mental training and motivation</li>
+                                <li data-en="International competition experience" data-cz="Mezinárodní závodní zkušenosti">International competition experience</li>
                             </ul>
                         </div>
                     </div>
@@ -788,61 +920,61 @@
             <div class="content-section">
                 <div class="section">
                     <div class="expertise-section">
-                        <h3><i class="fas fa-star"></i> Areas of Expertise</h3>
+                        <h3><i class="fas fa-star"></i> <span data-en="Areas of Expertise" data-cz="Oblasti Odbornosti">Areas of Expertise</span></h3>
                         <div class="expertise-grid">
                             <div class="expertise-item">
-                                <h4>🏅 Olympic Level Experience</h4>
-                                <p>Coached at the 2014 Winter Olympics in Sochi, providing elite-level equipment preparation and technical support.</p>
+                                <h4>🏅 <span data-en="Olympic Level Experience" data-cz="Olympijská Úroveň Zkušeností">Olympic Level Experience</span></h4>
+                                <p data-en="Coached at the 2014 Winter Olympics in Sochi, providing elite-level equipment preparation and technical support." data-cz="Trénoval na Zimních olympijských hrách 2014 v Soči, poskytoval elitní přípravu vybavení a technickou podporu.">Coached at the 2014 Winter Olympics in Sochi, providing elite-level equipment preparation and technical support.</p>
                             </div>
                             <div class="expertise-item">
-                                <h4>🌍 World Championships</h4>
-                                <p>Led equipment preparation and coaching at the 2013 World Championships in Schladming, Austria.</p>
+                                <h4>🌍 <span data-en="World Championships" data-cz="Světová Mistrovství">World Championships</span></h4>
+                                <p data-en="Led equipment preparation and coaching at the 2013 World Championships in Schladming, Austria." data-cz="Vedl přípravu vybavení a trénink na Mistrovství světa 2013 ve Schladmingu, Rakousko.">Led equipment preparation and coaching at the 2013 World Championships in Schladming, Austria.</p>
                             </div>
                             <div class="expertise-item">
-                                <h4>🏆 World Cup Experience</h4>
-                                <p>Extensive experience in World Cup and European Cup competitions with top-level equipment management.</p>
+                                <h4>🏆 <span data-en="World Cup Experience" data-cz="Zkušenosti ze Světového Poháru">World Cup Experience</span></h4>
+                                <p data-en="Extensive experience in World Cup and European Cup competitions with top-level equipment management." data-cz="Rozsáhlé zkušenosti ze závodů Světového poháru a Evropského poháru s vrcholovou správou vybavení.">Extensive experience in World Cup and European Cup competitions with top-level equipment management.</p>
                             </div>
                             <div class="expertise-item">
-                                <h4>🔧 Technical Expertise</h4>
-                                <p>30+ years of ski equipment preparation, maintenance, and optimization for competitive and recreational use.</p>
+                                <h4>🔧 <span data-en="Technical Expertise" data-cz="Technická Odbornost">Technical Expertise</span></h4>
+                                <p data-en="30+ years of ski equipment preparation, maintenance, and optimization for competitive and recreational use." data-cz="30+ let přípravy, údržby a optimalizace lyžařského vybavení pro soutěžní a rekreační použití.">30+ years of ski equipment preparation, maintenance, and optimization for competitive and recreational use.</p>
                             </div>
                             <div class="expertise-item">
-                                <h4>🌍 International Experience</h4>
-                                <p>Worked in multiple countries including Slovakia, Canada, Austria, and Russia with diverse skiing cultures.</p>
+                                <h4>🌍 <span data-en="International Experience" data-cz="Mezinárodní Zkušenosti">International Experience</span></h4>
+                                <p data-en="Worked in multiple countries including Slovakia, Canada, Austria, and Russia with diverse skiing cultures." data-cz="Pracoval v několika zemích včetně Slovenska, Kanady, Rakouska a Ruska s různorodými lyžařskými kulturami.">Worked in multiple countries including Slovakia, Canada, Austria, and Russia with diverse skiing cultures.</p>
                             </div>
                             <div class="expertise-item">
-                                <h4>📚 Educational Background</h4>
-                                <p>Degree in Physical Education and Sports with specialization in Alpine Skiing from Comenius University.</p>
+                                <h4>📚 <span data-en="Educational Background" data-cz="Vzdělávací Pozadí">Educational Background</span></h4>
+                                <p data-en="Degree in Physical Education and Sports with specialization in Alpine Skiing from Comenius University." data-cz="Vysokoškolské vzdělání v oboru Tělesná výchova a sport se specializací na Alpské lyžování na Univerzitě Komenského.">Degree in Physical Education and Sports with specialization in Alpine Skiing from Comenius University.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="experience-highlights">
-                        <h3><i class="fas fa-trophy"></i> Professional Highlights</h3>
+                        <h3><i class="fas fa-trophy"></i> <span data-en="Professional Highlights" data-cz="Profesionální Vrcholy">Professional Highlights</span></h3>
                         <div class="highlights-grid">
                             <div class="highlight-item">
-                                <h4>30+ Years</h4>
-                                <p>Professional experience in alpine skiing coaching and equipment management</p>
+                                <h4 data-en="30+ Years" data-cz="30+ Let">30+ Years</h4>
+                                <p data-en="Professional experience in alpine skiing coaching and equipment management" data-cz="Profesionální zkušenosti v trénování alpského lyžování a správě vybavení">Professional experience in alpine skiing coaching and equipment management</p>
                             </div>
                             <div class="highlight-item">
-                                <h4>4 Countries</h4>
-                                <p>International experience across Slovakia, Canada, Austria, and Russia</p>
+                                <h4 data-en="4 Countries" data-cz="4 Země">4 Countries</h4>
+                                <p data-en="International experience across Slovakia, Canada, Austria, and Russia" data-cz="Mezinárodní zkušenosti napříč Slovenskem, Kanadou, Rakouskem a Ruskem">International experience across Slovakia, Canada, Austria, and Russia</p>
                             </div>
                             <div class="highlight-item">
-                                <h4>Olympic Games</h4>
-                                <p>Coached and provided technical support at Sochi 2014 Winter Olympics</p>
+                                <h4 data-en="Olympic Games" data-cz="Olympijské Hry">Olympic Games</h4>
+                                <p data-en="Coached and provided technical support at Sochi 2014 Winter Olympics" data-cz="Trénoval a poskytoval technickou podporu na Zimních olympijských hrách v Soči 2014">Coached and provided technical support at Sochi 2014 Winter Olympics</p>
                             </div>
                             <div class="highlight-item">
-                                <h4>World Championships</h4>
-                                <p>Led team at 2013 World Championships in Schladming, Austria</p>
+                                <h4 data-en="World Championships" data-cz="Světová Mistrovství">World Championships</h4>
+                                <p data-en="Led team at 2013 World Championships in Schladming, Austria" data-cz="Vedl tým na Mistrovství světa 2013 ve Schladmingu, Rakousko">Led team at 2013 World Championships in Schladming, Austria</p>
                             </div>
                             <div class="highlight-item">
-                                <h4>Multiple Teams</h4>
-                                <p>Coached men's, women's, and junior national teams</p>
+                                <h4 data-en="Multiple Teams" data-cz="Více Týmů">Multiple Teams</h4>
+                                <p data-en="Coached men's, women's, and junior national teams" data-cz="Trénoval mužské, ženské a juniorské národní týmy">Coached men's, women's, and junior national teams</p>
                             </div>
                             <div class="highlight-item">
-                                <h4>Equipment Expert</h4>
-                                <p>Specialized in ski preparation, tuning, and safety protocols</p>
+                                <h4 data-en="Equipment Expert" data-cz="Odborník na Vybavení">Equipment Expert</h4>
+                                <p data-en="Specialized in ski preparation, tuning, and safety protocols" data-cz="Specializuje se na přípravu lyží, broušení a bezpečnostní protokoly">Specialized in ski preparation, tuning, and safety protocols</p>
                             </div>
                         </div>
                     </div>
@@ -852,14 +984,14 @@
 
         <!-- Call to Action Section -->
         <div class="cta-section">
-            <h3>Ready to Elevate Your Skiing Experience?</h3>
-            <p>Whether you need professional equipment preparation, expert instruction, or elite coaching, I'm here to help you achieve your skiing goals.</p>
+            <h3 data-en="Ready to Elevate Your Skiing Experience?" data-cz="Připraveni Povznést Váš Lyžařský Zážitek?">Ready to Elevate Your Skiing Experience?</h3>
+            <p data-en="Whether you need professional equipment preparation, expert instruction, or elite coaching, I'm here to help you achieve your skiing goals." data-cz="Ať už potřebujete profesionální přípravu vybavení, expertní výuku nebo elitní trénink, jsem zde, abych vám pomohl dosáhnout vašich lyžařských cílů.">Whether you need professional equipment preparation, expert instruction, or elite coaching, I'm here to help you achieve your skiing goals.</p>
             <div class="cta-buttons">
                 <a href="index.html" class="cta-button">
-                    <i class="fas fa-file-alt"></i> View CV Portfolio
+                    <i class="fas fa-file-alt"></i> <span data-en="View CV Portfolio" data-cz="Zobrazit CV Portfolio">View CV Portfolio</span>
                 </a>
                 <a href="mailto:agtopsport@gmail.com" class="cta-button">
-                    <i class="fas fa-envelope"></i> Contact for Services
+                    <i class="fas fa-envelope"></i> <span data-en="Contact for Services" data-cz="Kontakt pro Služby">Contact for Services</span>
                 </a>
             </div>
         </div>
@@ -884,6 +1016,23 @@
 
             // Add active class to clicked tab
             event.target.classList.add('active');
+        }
+
+        function changeLanguage(lang) {
+            // Update language buttons
+            const langBtns = document.querySelectorAll('.lang-btn');
+            langBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update all translatable elements
+            const elements = document.querySelectorAll('[data-en][data-cz]');
+            elements.forEach(element => {
+                if (lang === 'cz') {
+                    element.textContent = element.getAttribute('data-cz');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
         }
     </script>
 </body>
