@@ -177,6 +177,41 @@
             color: white;
         }
 
+        /* Skiing Banner */
+        .skiing-banner {
+            background-image: url('https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .banner-overlay {
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .banner-overlay h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .banner-overlay p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
         /* Skiing-themed decorative elements */
         .ski-decoration {
             position: fixed;
@@ -300,16 +335,24 @@
     <div class="ski-decoration">🏔️</div>
     <div class="ski-decoration">⛷️</div>
 
-    <div class="container">
-        <div class="header">
-            <h1 data-en="Andrej Gyure" data-cz="Andrej Gyure">Andrej Gyure</h1>
-            <h2 data-en="Alpine Skiing Coach" data-cz="Alpský Lyžařský Trenér">Alpine Skiing Coach</h2>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +421 948 255 601</p>
-                <p><i class="fas fa-map-marker-alt"></i> Banská Bystrica, Slovakia</p>
+            <div class="container">
+            <div class="header">
+                <h1 data-en="Andrej Gyure" data-cz="Andrej Gyure">Andrej Gyure</h1>
+                <h2 data-en="Alpine Skiing Coach" data-cz="Alpský Lyžařský Trenér">Alpine Skiing Coach</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +421 948 255 601</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Banská Bystrica, Slovakia</p>
+                </div>
             </div>
-        </div>
+
+            <!-- Skiing Banner -->
+            <div class="skiing-banner">
+                <div class="banner-overlay">
+                    <h2 data-en="Professional Alpine Skiing" data-cz="Profesionální Alpské Lyžování">Professional Alpine Skiing</h2>
+                    <p data-en="30+ years of Olympic and World Cup experience" data-cz="30+ let olympijských a světových zkušeností">30+ years of Olympic and World Cup experience</p>
+                </div>
+            </div>
 
         <div class="content">
             <div class="intro">
