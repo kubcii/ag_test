@@ -1,0 +1,158 @@
+{
+  "market_analysis": {
+    "job_titles": [
+      "Alpine Skiing Coach",
+      "Ski Team Coach",
+      "Alpine Racing Coach",
+      "Ski Performance Coach",
+      "National Team Coach",
+      "Elite Ski Coach",
+      "Ski Development Coach"
+    ],
+    "key_skills": [
+      "JobRequirement(skill='Technical Ski Knowledge', importance='Critical', description='Deep understanding of ski technique, equipment, and racing', category='Technical')",
+      "JobRequirement(skill='Performance Analysis', importance='High', description='Ability to analyze athlete performance and provide feedback', category='Analytical')",
+      "JobRequirement(skill='Team Leadership', importance='High', description='Experience leading and motivating elite athletes', category='Leadership')",
+      "JobRequirement(skill='International Experience', importance='High', description='Experience with World Cup, Olympics, international competitions', category='Experience')",
+      "JobRequirement(skill='Equipment Management', importance='Medium', description='Knowledge of ski preparation and maintenance', category='Technical')",
+      "JobRequirement(skill='Sports Psychology', importance='Medium', description='Understanding of mental preparation and motivation', category='Psychology')",
+      "JobRequirement(skill='Physical Conditioning', importance='Medium', description='Knowledge of fitness and conditioning for skiers', category='Fitness')",
+      "JobRequirement(skill='Communication Skills', importance='High', description='Ability to communicate with athletes, staff, and officials', category='Soft Skills')",
+      "JobRequirement(skill='Multilingual Skills', importance='Medium', description='Ability to work in international environments', category='Language')",
+      "JobRequirement(skill='Safety Management', importance='Critical', description='Ensuring athlete safety in high-risk sport', category='Safety')"
+    ],
+    "industry_standards": [
+      "IndustryStandard(aspect='Experience', requirement='Minimum 10+ years', best_practice='International competition experience preferred', source='FIS Guidelines')",
+      "IndustryStandard(aspect='Education', requirement='Sports Science Degree', best_practice='Physical Education or Sports Coaching degree', source='Academic Standards')",
+      "IndustryStandard(aspect='Certifications', requirement='FIS Coaching License', best_practice='International coaching certifications', source='FIS Requirements')",
+      "IndustryStandard(aspect='Languages', requirement='English + Local', best_practice='Multilingual capability for international work', source='International Standards')",
+      "IndustryStandard(aspect='Technical Skills', requirement='Ski Equipment', best_practice='Expert knowledge of ski preparation', source='Technical Standards')",
+      "IndustryStandard(aspect='Leadership', requirement='Team Management', best_practice='Proven ability to lead elite teams', source='Leadership Standards')"
+    ],
+    "current_trends": [
+      "Data-driven coaching approaches",
+      "Technology integration in training",
+      "Mental health and wellness focus",
+      "Sustainability in sports",
+      "Diversity and inclusion initiatives",
+      "Digital transformation in coaching"
+    ],
+    "salary_ranges": {
+      "entry_level": "$40,000 - $60,000",
+      "mid_level": "$60,000 - $100,000",
+      "senior_level": "$100,000 - $200,000",
+      "elite_level": "$200,000+"
+    },
+    "top_employers": [
+      "National Ski Federations",
+      "Olympic Committees",
+      "Professional Ski Teams",
+      "Ski Academies",
+      "Resort Ski Schools",
+      "University Sports Programs"
+    ]
+  },
+  "best_practices": {
+    "structure": [
+      "Professional Summary (2-3 sentences)",
+      "Key Achievements (bullet points)",
+      "Professional Experience (reverse chronological)",
+      "Education & Certifications",
+      "Technical Skills",
+      "Languages",
+      "References (available upon request)"
+    ],
+    "design_principles": [
+      "Clean, professional layout",
+      "Consistent formatting",
+      "Easy to scan quickly",
+      "Highlight key achievements",
+      "Use action verbs",
+      "Quantify results where possible"
+    ],
+    "content_priorities": [
+      "International competition experience",
+      "Olympic/World Championship participation",
+      "Team leadership experience",
+      "Technical expertise",
+      "Multilingual capabilities",
+      "Safety and risk management"
+    ],
+    "keywords": [
+      "Alpine skiing",
+      "World Cup",
+      "Olympic Games",
+      "FIS",
+      "Performance analysis",
+      "Team leadership",
+      "Equipment management",
+      "International experience",
+      "Elite athletes",
+      "Competition coaching"
+    ]
+  },
+  "competitor_analysis": {
+    "top_coaches_profiles": [
+      {
+        "name": "Typical Elite Coach Profile",
+        "experience": "20+ years international experience",
+        "achievements": "Olympic medals, World Cup wins",
+        "education": "Sports Science degree + certifications",
+        "languages": "3-4 languages minimum",
+        "specializations": "Technical expertise, performance analysis"
+      }
+    ],
+    "common_mistakes": [
+      "Too much text, not enough achievements",
+      "Missing quantifiable results",
+      "Poor formatting and layout",
+      "Lack of international experience emphasis",
+      "Missing technical skills section",
+      "No clear value proposition"
+    ],
+    "success_factors": [
+      "Clear achievement-focused summary",
+      "Quantified results and statistics",
+      "International experience highlighted",
+      "Technical expertise demonstrated",
+      "Leadership experience emphasized",
+      "Professional certifications listed"
+    ]
+  },
+  "improvement_requirements": {
+    "must_have_sections": [
+      "Professional Summary with Value Proposition",
+      "Key Achievements (Olympic, World Cup, Championships)",
+      "Detailed Professional Experience",
+      "Education & Certifications",
+      "Technical Skills & Expertise",
+      "Languages & International Experience",
+      "Safety & Risk Management Experience"
+    ],
+    "design_requirements": [
+      "Professional color scheme (blues, grays)",
+      "Clean typography (Arial, Calibri, or similar)",
+      "Consistent spacing and alignment",
+      "Easy-to-scan layout",
+      "Highlight key achievements",
+      "Mobile-friendly format"
+    ],
+    "content_improvements": [
+      "Add quantifiable achievements",
+      "Emphasize international experience",
+      "Highlight Olympic participation",
+      "Show technical expertise",
+      "Demonstrate leadership skills",
+      "Include safety management experience"
+    ],
+    "formatting_standards": [
+      "Maximum 2 pages",
+      "Clear section headers",
+      "Bullet points for achievements",
+      "Consistent date formatting",
+      "Professional contact information",
+      "Clean, scannable layout"
+    ]
+  },
+  "research_date": "2025-07-31T09:20:54.726387"
+}

@@ -1,0 +1,393 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Andrej Gyure - Alpine Skiing Coach</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background-color: #f5f5f5;
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background: white;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 40px;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+                font-weight: 300;
+            }
+
+            .contact-info {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                flex-wrap: wrap;
+                margin-top: 20px;
+            }
+
+            .contact-info p {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .content {
+                padding: 40px;
+            }
+
+            .cv-section {
+                margin-bottom: 40px;
+            }
+
+            .cv-section h2 {
+                color: #667eea;
+                border-bottom: 2px solid #667eea;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                font-size: 1.5em;
+            }
+
+            .experience-item {
+                margin-bottom: 25px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 8px;
+                border-left: 4px solid #667eea;
+            }
+
+            .experience-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .experience-header h3 {
+                color: #333;
+                font-size: 1.2em;
+            }
+
+            .period {
+                background: #667eea;
+                color: white;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.9em;
+            }
+
+            .organization {
+                color: #666;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            .language-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .language-name {
+                font-weight: 500;
+            }
+
+            .language-level {
+                color: #667eea;
+                font-weight: 500;
+            }
+
+            .language-skills {
+                color: #666;
+                font-size: 0.9em;
+            }
+
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .skill-item {
+                background: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                border-left: 4px solid #667eea;
+            }
+
+            .skill-item h4 {
+                color: #333;
+                margin-bottom: 5px;
+            }
+
+            .achievements {
+                background: #e8f4fd;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 20px;
+            }
+
+            .achievements h3 {
+                color: #667eea;
+                margin-bottom: 15px;
+            }
+
+            .achievements ul {
+                list-style: none;
+            }
+
+            .achievements li {
+                padding: 5px 0;
+                position: relative;
+                padding-left: 20px;
+            }
+
+            .achievements li:before {
+                content: "✓";
+                color: #667eea;
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            @media (max-width: 768px) {
+                .contact-info {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                .experience-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                }
+
+                .language-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 5px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                
+    <div class="personal-info">
+        <h1>Andrej Gyure
+Date of Birth: August 23, 1968
+Nationality: Slovak
+Address: Jilemnického 33, 974 04 Banská Bystrica, Slovakia
+Phone: +421 948 255 601
+E-mail: agtopsport@gmail.com</h1>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +421 948 255 601</p>
+            <p><i class="fas fa-map-marker-alt"></i> Jilemnického 33, 974 04 Banská Bystrica, Slovakia</p>
+        </div>
+    </div>
+    
+            </div>
+            <div class="content">
+                
+        <section class="cv-section">
+            <h2>Professional Summary</h2>
+            
+                <p>Experienced alpine skiing coach with over 30 years of professional experience at national and international levels.
+                Specialized in World Cup, European Cup, World Championships, and Olympic Games competitions.
+                Proven track record in developing elite athletes and managing high-performance teams.</p>
+                
+        </section>
+        
+
+                
+        <section class="cv-section">
+            <h2>Professional Experience</h2>
+            
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Assistant Coach of the Slovak Men's Alpine Skiing National Team</h3>
+                <span class="period">1992-1993</span>
+            </div>
+            <div class="organization">Slovak National Team</div>
+            <p>World Cup and European Cup competitions</p>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Coach and Skiman of the Slovak Women's Alpine Skiing National Team</h3>
+                <span class="period">1994-1998</span>
+            </div>
+            <div class="organization">Slovak National Team</div>
+            <p>World Cup and European Cup competitions</p>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Coach of the Slovak Junior National Team in Alpine Skiing</h3>
+                <span class="period">1998-2003</span>
+            </div>
+            <div class="organization">Slovak National Team</div>
+            <p>FIS Races and European Cup competitions</p>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Coach and Skiman of the Slovak Men's National Team in Alpine Skiing</h3>
+                <span class="period">2003-2014</span>
+            </div>
+            <div class="organization">Slovak National Team</div>
+            <p>World Cup, European Cup, World Championships in Schladming, Winter Olympic Games in Sochi 2014</p>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Coach of the Québec Provincial Ski Team</h3>
+                <span class="period">2014-2018</span>
+            </div>
+            <div class="organization">Canada</div>
+            <p>International coaching experience in Canadian ski system</p>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Coach and Skiman of the Slovak Alpine Skiing National Team</h3>
+                <span class="period">2018-2023</span>
+            </div>
+            <div class="organization">Slovak National Team</div>
+            <p>FIS Races and European Cup competitions</p>
+            
+        </div>
+        
+        </section>
+        
+
+                
+        <section class="cv-section">
+            <h2>Education</h2>
+            
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Comenius University, Faculty of Physical Education and Sports</h3>
+                        <span class="period">1986-1991</span>
+                    </div>
+                    <p><strong>Specialization:</strong> Alpine Skiing</p>
+                    <p>Degree completed in Physical Education and Sports</p>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Sports Grammar School, Banská Bystrica</h3>
+                        <span class="period">1982-1986</span>
+                    </div>
+                    <p>High school diploma with sports specialization</p>
+                </div>
+                
+        </section>
+        
+
+                
+        <section class="cv-section">
+            <h2>Languages</h2>
+            
+        <div class="language-item">
+            <span class="language-name">Slovak</span>
+            <span class="language-level">Native</span>
+            <span class="language-skills">(Fluent)</span>
+        </div>
+        
+        <div class="language-item">
+            <span class="language-name">Spanish</span>
+            <span class="language-level">Fluent</span>
+            <span class="language-skills">(Spoken and written)</span>
+        </div>
+        
+        <div class="language-item">
+            <span class="language-name">German</span>
+            <span class="language-level">Basic</span>
+            <span class="language-skills">(Spoken)</span>
+        </div>
+        
+        <div class="language-item">
+            <span class="language-name">Italian</span>
+            <span class="language-level">Basic</span>
+            <span class="language-skills">(Spoken)</span>
+        </div>
+        
+        </section>
+        
+
+                
+        <section class="cv-section">
+            <h2>Skills & Certifications</h2>
+            
+                <div class="skills-grid">
+                    
+                    <div class="skill-item">
+                        <h4>Driving License</h4>
+                        <p>Category B</p>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <h4>Professional Experience</h4>
+                        <p>Extensive experience in World Cup, European Cup, World Championships, and Olympic Games</p>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <h4>Ski Equipment Management</h4>
+                        <p>Expert knowledge in ski preparation and maintenance</p>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <h4>Team Leadership</h4>
+                        <p>Proven ability to lead and develop elite athletes</p>
+                    </div>
+                    
+                </div>
+                
+        </section>
+        
+
+                <div class="achievements">
+                    <h3>Key Achievements</h3>
+                    <ul>
+                        <li>Olympic Games participation (Sochi 2014)</li><li>World Championships experience (Schladming)</li><li>World Cup and European Cup competitions</li><li>International coaching experience (Canada 2014-2018)</li><li>30+ years of professional skiing experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    
