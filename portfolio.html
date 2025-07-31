@@ -13,12 +13,32 @@
             color: #2c3e50;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            position: relative;
         }
+
+        /* Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
+        /* Enhanced Header with Skiing Theme */
         .header {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
@@ -27,17 +47,41 @@
             border-radius: 15px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
         }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
         .header h1 {
             font-size: 3em;
             margin-bottom: 10px;
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
         .header h2 {
             font-size: 1.5em;
             margin-bottom: 20px;
             font-weight: 300;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
         .contact-info {
             display: flex;
@@ -45,6 +89,8 @@
             gap: 30px;
             flex-wrap: wrap;
             margin-top: 30px;
+            position: relative;
+            z-index: 1;
         }
         .contact-info p {
             display: flex;
@@ -53,7 +99,7 @@
             font-size: 1.1em;
         }
 
-        /* Navigation Tabs */
+        /* Navigation Tabs with Skiing Theme */
         .nav-tabs {
             display: flex;
             background: white;
@@ -61,7 +107,19 @@
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
+            position: relative;
         }
+
+        .nav-tabs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #27ae60, #e74c3c, #f39c12);
+        }
+
         .nav-tab {
             flex: 1;
             padding: 20px;
@@ -74,23 +132,38 @@
             cursor: pointer;
             font-size: 1.1em;
             font-weight: 500;
+            position: relative;
         }
         .nav-tab:hover {
             background: #e9ecef;
             color: #2c3e50;
+            transform: translateY(-2px);
         }
         .nav-tab.active {
             background: #3498db;
             color: white;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
         }
 
-        /* Content Sections */
+        /* Content Sections with Enhanced Design */
         .content-section {
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
+            position: relative;
         }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #27ae60, #e74c3c);
+        }
+
         .section {
             padding: 30px;
         }
@@ -100,19 +173,44 @@
             padding-bottom: 15px;
             margin-bottom: 25px;
             font-size: 1.8em;
+            position: relative;
         }
+
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #27ae60);
+        }
+
         .about-me {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 25px;
             border-radius: 10px;
             border-left: 5px solid #3498db;
             margin-bottom: 20px;
+            position: relative;
         }
+
+        .about-me::before {
+            content: '🏔️';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
         .about-me p {
             font-size: 1.1em;
             line-height: 1.8;
             color: #555;
         }
+
+        /* Enhanced Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -126,16 +224,45 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
         .stat-number {
             font-size: 2.5em;
             font-weight: bold;
             margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
         }
         .stat-label {
             font-size: 1.1em;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
+
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -143,7 +270,7 @@
             margin-bottom: 30px;
         }
 
-        /* Services Grid */
+        /* Enhanced Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -156,16 +283,45 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #27ae60);
+        }
+
         .service-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
+
         .service-icon {
             font-size: 4em;
             color: #3498db;
             margin-bottom: 20px;
+            position: relative;
         }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #27ae60);
+            border-radius: 2px;
+        }
+
         .service-card h3 {
             color: #2c3e50;
             margin-bottom: 15px;
@@ -195,13 +351,24 @@
             font-weight: bold;
         }
 
-        /* Expertise Section */
+        /* Enhanced Expertise Section */
         .expertise-section {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
+            position: relative;
         }
+
+        .expertise-section::before {
+            content: '🏆';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
         .expertise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -212,7 +379,25 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .expertise-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .expertise-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3498db, #27ae60);
+        }
+
         .expertise-item h4 {
             color: #2c3e50;
             margin-bottom: 10px;
@@ -223,13 +408,24 @@
             line-height: 1.6;
         }
 
-        /* Experience Highlights */
+        /* Enhanced Experience Highlights */
         .experience-highlights {
             background: white;
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
+            position: relative;
         }
+
+        .experience-highlights::before {
+            content: '🎿';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
         .highlights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -238,9 +434,27 @@
         .highlight-item {
             text-align: center;
             padding: 20px;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .highlight-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .highlight-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #27ae60);
+        }
+
         .highlight-item h4 {
             color: #2c3e50;
             margin-bottom: 10px;
@@ -251,7 +465,7 @@
             line-height: 1.6;
         }
 
-        /* CTA Section */
+        /* Enhanced CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
             color: white;
@@ -259,21 +473,46 @@
             border-radius: 15px;
             text-align: center;
             margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
         }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         .cta-section h3 {
             font-size: 2em;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
         .cta-section p {
             font-size: 1.2em;
             margin-bottom: 30px;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
         .cta-button {
             background: white;
@@ -285,10 +524,12 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .cta-button:hover {
             transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
         /* Hide/Show Sections */
@@ -297,6 +538,35 @@
         }
         .tab-content.active {
             display: block;
+        }
+
+        /* Skiing-themed decorative elements */
+        .ski-decoration {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            font-size: 3em;
+            opacity: 0.1;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .ski-decoration:nth-child(2) {
+            top: 150px;
+            right: 100px;
+            animation-delay: 1s;
+        }
+
+        .ski-decoration:nth-child(3) {
+            top: 250px;
+            right: 30px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Mobile Optimizations */
@@ -330,6 +600,9 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .ski-decoration {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -343,6 +616,11 @@
     </style>
 </head>
 <body>
+    <!-- Skiing-themed decorative elements -->
+    <div class="ski-decoration">🎿</div>
+    <div class="ski-decoration">🏔️</div>
+    <div class="ski-decoration">⛷️</div>
+
     <div class="container">
         <!-- Header Section -->
         <div class="header">

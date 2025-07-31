@@ -14,6 +14,23 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
         .container {
             max-width: 800px;
@@ -28,17 +45,40 @@
             color: white;
             padding: 40px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
         }
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
         .header h2 {
             font-size: 1.3em;
             margin-bottom: 20px;
             font-weight: 300;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
         .contact-info {
             display: flex;
@@ -46,6 +86,8 @@
             gap: 20px;
             flex-wrap: wrap;
             margin-top: 20px;
+            position: relative;
+            z-index: 1;
         }
         .contact-info p {
             display: flex;
@@ -80,10 +122,51 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #27ae60);
         }
         .cv-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Skiing-themed decorative elements */
+        .ski-decoration {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            font-size: 3em;
+            opacity: 0.1;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .ski-decoration:nth-child(2) {
+            top: 150px;
+            right: 100px;
+            animation-delay: 1s;
+        }
+
+        .ski-decoration:nth-child(3) {
+            top: 250px;
+            right: 30px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
         .cv-card h3 {
             color: #2c3e50;
@@ -141,10 +224,18 @@
             .header h2 { font-size: 1em; }
             .contact-info p { font-size: 0.8em; }
             .cv-card { padding: 15px; }
+            .ski-decoration {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skiing-themed decorative elements -->
+    <div class="ski-decoration">🎿</div>
+    <div class="ski-decoration">🏔️</div>
+    <div class="ski-decoration">⛷️</div>
+
     <div class="container">
         <div class="header">
             <h1>Andrej Gyure</h1>
