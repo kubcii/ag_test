@@ -7,13 +7,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Full Width Layout */
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Mountain Banner */
+        .mountain-banner {
+            background-image: url('https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            width: 100%;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .banner-overlay {
+            background: rgba(0,0,0,0.4);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            max-width: 800px;
+        }
+
+        .banner-overlay h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .banner-overlay h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .banner-overlay p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Background Pattern */
@@ -30,12 +89,6 @@
                 radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
         /* Language Switcher */
@@ -809,23 +862,22 @@
     <div class="ski-decoration">🏔️</div>
     <div class="ski-decoration">⛷️</div>
 
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header">
+    <!-- Mountain Banner -->
+    <div class="mountain-banner">
+        <div class="banner-overlay">
             <h1 data-en="Andrej Gyure" data-cz="Andrej Gyure">Andrej Gyure</h1>
             <h2 data-en="Professional Alpine Skiing Coach & Technician" data-cz="Profesionální Alpský Lyžařský Trenér a Technik">Professional Alpine Skiing Coach & Technician</h2>
+            <p data-en="30+ Years of Alpine Skiing Excellence - From Olympic Games to World Championships" data-cz="30+ Let Alpského Lyžařského Vynikání - Od Olympijských her po Mistrovství světa">30+ Years of Alpine Skiing Excellence - From Olympic Games to World Championships</p>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <!-- Contact Info Section -->
+        <div class="header">
             <div class="contact-info">
                 <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
                 <p><i class="fas fa-phone"></i> +421 948 255 601</p>
                 <p><i class="fas fa-map-marker-alt"></i> Banská Bystrica, Slovakia</p>
-            </div>
-        </div>
-
-        <!-- Skiing Banner -->
-        <div class="skiing-banner">
-            <div class="banner-overlay">
-                <h2 data-en="30+ Years of Alpine Skiing Excellence" data-cz="30+ Let Alpského Lyžařského Vynikání">30+ Years of Alpine Skiing Excellence</h2>
-                <p data-en="From Olympic Games to World Championships - Professional coaching and equipment expertise" data-cz="Od Olympijských her po Mistrovství světa - Profesionální trénink a odbornost na vybavení">From Olympic Games to World Championships - Professional coaching and equipment expertise</p>
             </div>
         </div>
 
@@ -922,24 +974,24 @@
                         <h3><i class="fas fa-images"></i> <span data-en="Professional Experience" data-cz="Profesionální Zkušenosti">Professional Experience</span></h3>
                         <div class="image-gallery">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Alpine Skiing Competition">
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ski Instructor Teaching">
+                                <div class="gallery-overlay">
+                                    <h4 data-en="Ski Instructor Teaching" data-cz="Výuka Lyžování">Ski Instructor Teaching</h4>
+                                    <p data-en="Professional ski instruction and coaching" data-cz="Profesionální výuka a trénink lyžování">Professional ski instruction and coaching</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ski Technician Working">
+                                <div class="gallery-overlay">
+                                    <h4 data-en="Ski Technician Working" data-cz="Práce Lyžařského Technika">Ski Technician Working</h4>
+                                    <p data-en="Professional ski tuning and equipment maintenance" data-cz="Profesionální broušení a údržba lyžařského vybavení">Professional ski tuning and equipment maintenance</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Alpine Skiing Competition">
                                 <div class="gallery-overlay">
                                     <h4 data-en="Alpine Skiing Competition" data-cz="Alpské Lyžařské Závody">Alpine Skiing Competition</h4>
                                     <p data-en="World Cup and Olympic level experience" data-cz="Zkušenosti ze Světového poháru a olympijské úrovně">World Cup and Olympic level experience</p>
-                                </div>
-                            </div>
-                            <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Mountain Training">
-                                <div class="gallery-overlay">
-                                    <h4 data-en="Mountain Training" data-cz="Horský Trénink">Mountain Training</h4>
-                                    <p data-en="High-altitude and technical training" data-cz="Vysokohorský a technický trénink">High-altitude and technical training</p>
-                                </div>
-                            </div>
-                            <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ski Equipment">
-                                <div class="gallery-overlay">
-                                    <h4 data-en="Equipment Expertise" data-cz="Odbornost na Vybavení">Equipment Expertise</h4>
-                                    <p data-en="Professional ski tuning and maintenance" data-cz="Profesionální broušení a údržba lyží">Professional ski tuning and maintenance</p>
                                 </div>
                             </div>
                         </div>
@@ -950,24 +1002,24 @@
                         <h3><i class="fas fa-tools"></i> <span data-en="Skiing Equipment & Services" data-cz="Lyžařské Vybavení a Služby">Skiing Equipment & Services</span></h3>
                         <div class="equipment-grid">
                             <div class="equipment-item">
-                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ski Tuning">
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ski Technician Workshop">
                                 <div class="equipment-content">
-                                    <h4 data-en="Ski Tuning & Maintenance" data-cz="Broušení a Údržba Lyží">Ski Tuning & Maintenance</h4>
-                                    <p data-en="Professional edge sharpening, waxing, and equipment optimization" data-cz="Profesionální ostření hran, voskování a optimalizace vybavení">Professional edge sharpening, waxing, and equipment optimization</p>
+                                    <h4 data-en="Ski Technician Workshop" data-cz="Dílna Lyžařského Technika">Ski Technician Workshop</h4>
+                                    <p data-en="Professional ski tuning, edge sharpening, and equipment maintenance" data-cz="Profesionální broušení lyží, ostření hran a údržba vybavení">Professional ski tuning, edge sharpening, and equipment maintenance</p>
                                 </div>
                             </div>
                             <div class="equipment-item">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Competition Preparation">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ski Instructor Training">
                                 <div class="equipment-content">
-                                    <h4 data-en="Competition Preparation" data-cz="Příprava na Soutěže">Competition Preparation</h4>
-                                    <p data-en="Olympic and World Cup level equipment preparation" data-cz="Příprava vybavení na olympijské a světové úrovni">Olympic and World Cup level equipment preparation</p>
+                                    <h4 data-en="Ski Instructor Training" data-cz="Trénink Lyžařského Instruktora">Ski Instructor Training</h4>
+                                    <p data-en="Professional ski instruction and coaching techniques" data-cz="Profesionální výuka lyžování a tréninkové techniky">Professional ski instruction and coaching techniques</p>
                                 </div>
                             </div>
                             <div class="equipment-item">
-                                <img src="https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Safety Equipment">
+                                <img src="https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Competition Equipment">
                                 <div class="equipment-content">
-                                    <h4 data-en="Safety & Certification" data-cz="Bezpečnost a Certifikace">Safety & Certification</h4>
-                                    <p data-en="Equipment safety inspection and professional certification" data-cz="Bezpečnostní kontrola vybavení a profesionální certifikace">Equipment safety inspection and professional certification</p>
+                                    <h4 data-en="Competition Equipment" data-cz="Závodní Vybavení">Competition Equipment</h4>
+                                    <p data-en="Olympic and World Cup level equipment preparation and safety" data-cz="Příprava vybavení na olympijské a světové úrovni a bezpečnost">Olympic and World Cup level equipment preparation and safety</p>
                                 </div>
                             </div>
                         </div>

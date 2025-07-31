@@ -8,13 +8,13 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
-            position: relative;
         }
 
         /* Background Pattern */
@@ -33,12 +33,60 @@
             z-index: -1;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-radius: 15px;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Mountain Banner */
+        .mountain-banner {
+            background-image: url('https://images.unsplash.com/photo-1551524164-4876eb6e7c49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+        }
+
+        .banner-overlay {
+            background: rgba(0,0,0,0.4);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            max-width: 800px;
+        }
+
+        .banner-overlay h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .banner-overlay h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .banner-overlay p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         .header {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -335,24 +383,23 @@
     <div class="ski-decoration">🏔️</div>
     <div class="ski-decoration">⛷️</div>
 
-            <div class="container">
-            <div class="header">
-                <h1 data-en="Andrej Gyure" data-cz="Andrej Gyure">Andrej Gyure</h1>
-                <h2 data-en="Alpine Skiing Coach" data-cz="Alpský Lyžařský Trenér">Alpine Skiing Coach</h2>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +421 948 255 601</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Banská Bystrica, Slovakia</p>
-                </div>
-            </div>
+    <!-- Mountain Banner -->
+    <div class="mountain-banner">
+        <div class="banner-overlay">
+            <h1 data-en="Andrej Gyure" data-cz="Andrej Gyure">Andrej Gyure</h1>
+            <h2 data-en="Professional Alpine Skiing Coach" data-cz="Profesionální Alpský Lyžařský Trenér">Professional Alpine Skiing Coach</h2>
+            <p data-en="30+ years of Olympic and World Cup experience" data-cz="30+ let olympijských a světových zkušeností">30+ years of Olympic and World Cup experience</p>
+        </div>
+    </div>
 
-            <!-- Skiing Banner -->
-            <div class="skiing-banner">
-                <div class="banner-overlay">
-                    <h2 data-en="Professional Alpine Skiing" data-cz="Profesionální Alpské Lyžování">Professional Alpine Skiing</h2>
-                    <p data-en="30+ years of Olympic and World Cup experience" data-cz="30+ let olympijských a světových zkušeností">30+ years of Olympic and World Cup experience</p>
-                </div>
+    <div class="content-container">
+        <div class="header">
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> agtopsport@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +421 948 255 601</p>
+                <p><i class="fas fa-map-marker-alt"></i> Banská Bystrica, Slovakia</p>
             </div>
+        </div>
 
         <div class="content">
             <div class="intro">
